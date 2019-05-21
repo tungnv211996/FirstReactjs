@@ -1,3 +1,37 @@
 .table{
     margin-top: 60px;
 }
+.m-t-20{
+    margin-top: 20px
+}
+.m-t-50{
+    margin-top: 50px;
+}
+.m-t-100{
+    margin-top: 100px;
+}
+.h-200{
+    height: 200px;
+}
+.h-400{
+    height: 400px;
+}
+.w-400{
+    width: 400px;
+    max-width: 400px;
+}
+.min-w{
+    min-width: 600px;
+}
+.m-l-30{
+    margin-left: 30px;
+}
+.m-50{
+    margin: auto 50px;
+}
+a{
+    color: #fff !important;
+}
+td a {
+    margin-right: 5px; 
+}
