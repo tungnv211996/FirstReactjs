@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Row from './row';
 import { connect } from 'react-redux';
+import *as actions from '../../actions/index';
+
 class Table extends Component {
     constructor(props) {
         super(props);
@@ -8,10 +10,15 @@ class Table extends Component {
             status: undefined
         }
     }
-
+    listAll = () =>{
+        this.props.listAll()
+    }
 render() {
+    this.listAll();
     const { tasks, status } = this.props
-    let rows = tasks.filter(i => { return (undefined !== status) ? (i.status == status ? true : false) : true }).map((task, index) => {
+    let rows = tasks
+    .filter(i => { return (undefined !== status) ? (i.status == status ? true : false) : true })
+    .map((task, index) => {
         return (
             <Row
                 editTask={this.props.editTask}
@@ -59,4 +66,11 @@ const mapStateToProps = (state) => {
         tasks: state.tasks
     }
 };
-export default connect(mapStateToProps, null)(Table);
+const mapDispatchToProps = (dispatch,props) =>{
+    return{
+        listAll: () =>{
+            dispatch(actions.listAll())
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
