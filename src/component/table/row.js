@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import *as actions from '../../actions/index';
 class Row extends Component {
     constructor(props) {
         super(props)
@@ -59,4 +61,14 @@ class Row extends Component {
         )
     }
 }
-export default Row;
+const mapDispatchToProps = (dispatch,props) =>{
+    return{
+        deleteTask: (id) =>{
+            dispatch(actions.deleteTask(id))
+        },
+        editTask:(task) =>{
+            dispatch(actions.editTask(task))
+        }
+    }
+}
+export default connect(null,mapDispatchToProps)(Row);

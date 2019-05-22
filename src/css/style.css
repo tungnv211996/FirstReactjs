@@ -29,6 +29,9 @@
 .m-50{
     margin: auto 50px;
 }
+.m-r-10{
+    margin-right: 10px;
+}
 a{
     color: #fff !important;
 }

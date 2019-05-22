@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import *as actions from '../../actions/index';
 class Form extends Component {
     constructor(props){
         super(props);
@@ -13,11 +15,12 @@ class Form extends Component {
     addTask = (e) => {
         e.preventDefault()
         this.props.addTask(this.state)
+
     }
     render() {
         return (
 
-            <form className="form-inline">
+            <form className="form-inline m-t-20">
                 <div className="form-group">
                     <label >Name</label>
                     <input type="text"
@@ -40,4 +43,11 @@ class Form extends Component {
         )
     }
 }
-export default Form;
+const mapDispatchToProps = (dispatch, props) =>{
+    return {
+        addTask: (task)=>{
+            dispatch(actions.addTask(task));
+        }
+    }
+}
+export default connect(null,mapDispatchToProps)(Form);
